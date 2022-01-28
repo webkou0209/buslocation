@@ -1,0 +1,63 @@
+     getData(checked_data.value);
+          setTimeout(function(){ // 処理の実行に1秒の遅延
+
+        console.log(loc);
+        console.log(k);
+        
+        //1つ前のピンを消す
+        if(k != 0){
+          marker.setMap(null);
+        }
+        k++;
+
+
+    //運行してない場合の表示
+    if(loc[0] == -1 && loc[1] == -1){
+      document.getElementById('information').innerHTML = "<p style='text-align:center; font-size:20px; color:red; font-weight:bold;'>現在運行しておりません</p>"
+    }
+    else{
+      document.getElementById('information').innerHTML = ""
+    }
+       
+
+    var now = new Date(); //時刻保存用
+
+      var Year = now.getFullYear();
+      var Month = now.getMonth()+1;
+      var Dates = now.getDate();
+      var Hour = now.getHours();
+      var Min = now.getMinutes();
+      var Sec = now.getSeconds();
+      
+      var now_time = new Date(Year + "/" + Month + "/" +Dates + " " + Hour + ":" + Min + ":" + Sec);
+      var get_time = new Date(loc[2]);
+
+
+      var diffTime = now_time.getTime() - get_time.getTime();
+      var diffSecond = diffTime / 1000;  //現在時刻とcsv取得時刻の差分(秒)
+
+      console.log(diffSecond);
+     
+      bus = new google.maps.LatLng(loc[0], loc[1]);
+
+
+        //路線ピン
+        marker = new google.maps.Marker({
+          position: bus,
+          map: map,
+        });
+
+
+//透過処理
+        if(diffSecond >= 30){
+          marker.setOpacity(0.5);
+       }
+       else{
+        marker.setOpacity(0.0);
+       }
+ 
+      loc = [];
+    
+
+  }, 1000);
+   

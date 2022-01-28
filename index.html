@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>コミュニティバス</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyD2phjH467NMGlxzmtPnUVBcIk3cUYubtA"></script>
+</head>
+
+
+<body>
+  <header>
+    <div style="background-color:#ffe4b5; display:flex ; height:90px; padding-top:20px;">
+      <div class="title" style="display:flex;">
+        <img src="car_bus_jr.png" align="top" width="70px" height="70px">
+        <h1><a href="index.html" style="color:black; text-decoration:none;">バスロケーションサービス</a></h1>
+      </div>
+      <div class="nav" style="margin:1px 20px auto auto">
+        <nav style="display:flex;">
+          <div class="button04">
+            <a style="width:70px; font-size=15px; margin-right:10px; text-decoration:none;" id="show"><i class="fas fa-cog" style="color:black;">設定</i></a>
+          </div>
+          <div class="button04">
+            <a href="http://www.setouchibus.co.jp/" target="_blank">バス公式サイト</a>
+          </div>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <br>
+  <!-- 設定ダイアログ -->
+  <dialog>
+    <h3 style="text-align:center;">-設定画面-</h3>
+    <label id="close" class="close">閉じる</label>
+    <ul>
+      <li>アイコンを半透明にするまでの時間<br>
+        <div style="text-align:center;">最後の位置情報の更新から<input type="number" value="30" id="judge_time" style="width:80px; height:30px; font-size:20px;"></input> 秒</div>
+      </li>
+      <br>
+      <li>アイコンの色<br>
+        <ul>
+          <li>路線A</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="color_selectionA">
+              <option value="./img/red.png" selected>赤</option>
+              <option value="./img/black.png">黒</option>
+              <option value="./img/blue.png">青</option>
+              <option value="./img/green.png">緑</option>
+              <option value="./img/orange.png">橙</option>
+            </select>
+          </div>
+          <li>路線B</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="color_selectionB">
+              <option value="img/red.png" >赤</option>
+              <option value="img/black.png" selected>黒</option>
+              <option value="img/blue.png">青</option>
+              <option value="img/green.png">緑</option>
+              <option value="img/orange.png">橙</option>
+            </select>
+          </div>
+          <li>路線C</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="color_selectionC">
+              <option value="img/red.png" >赤</option>
+              <option value="img/black.png">黒</option>
+              <option value="img/blue.png" selected>青</option>
+              <option value="img/green.png">緑</option>
+              <option value="img/orange.png">橙</option>
+            </select>
+          </div>
+          <li>路線D</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="color_selectionD">
+              <option value="img/red.png" >赤</option>
+              <option value="img/black.png">黒</option>
+              <option value="img/blue.png">青</option>
+              <option value="img/green.png" selected>緑</option>
+              <option value="img/orange.png">橙</option>
+            </select>
+          </div>
+
+        </ul>
+      </li>
+
+<br>
+
+      <li>アイコンラベルの色<br>
+        <ul>
+          <li>路線A</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="label_color_selectionA">
+              <option value="#ff0000" selected>赤</option>
+              <option value="#000000">黒</option>
+              <option value="#0000ff">青</option>
+              <option value="#008000">緑</option>
+              <option value="#ffa500">橙</option>
+            </select>
+          </div>
+          <li>路線B</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="label_color_selectionB">
+              <option value="#ff0000" >赤</option>
+              <option value="#000000" selected>黒</option>
+              <option value="#0000ff">青</option>
+              <option value="#008000">緑</option>
+              <option value="#ffa500">橙</option>
+            </select>
+          </div>
+          <li>路線C</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="label_color_selectionC">
+              <option value="#ff0000" >赤</option>
+              <option value="#000000">黒</option>
+              <option value="#0000ff" selected>青</option>
+              <option value="#008000">緑</option>
+              <option value="#ffa500">橙</option>
+            </select>
+          </div>
+          <li>路線D</li>
+          <div>
+            <select style="width:80px; height:30px; font-size:20px;" id="label_color_selectionD">
+              <option value="#ff0000" >赤</option>
+              <option value="#000000">黒</option>
+              <option value="#0000ff">青</option>
+              <option value="#008000" selected>緑</option>
+              <option value="#ffa500">橙</option>
+            </select>
+          </div>
+          </ul>
+
+
+
+
+      </li>
+    </ul>
+
+    <p>※設定の反映に数秒かかる場合があります</p>
+    <div style="text-align:center; margin-bottom:1px;">
+      <input type="button" value="設定変更" onclick="change_setting()" style="width:200px;" id="close"></input>
+    </div>
+  </dialog>
+
+
+  <!-- 運行情報 -->
+  <div class="box26">
+    <span class="box-title">運行情報</span>
+    <ul id="information">
+      <li>路線A：<label id="informationA">読込み中</label></li>
+      <li>路線B：<label id="informationB">読込み中</label></li>
+      <li>路線C：<label id="informationC">読込み中</label></li>
+      <li>路線D：<label id="informationD">読込み中</label></li>
+    </ul>
+  </div>
+
+
+  <!-- (チェックボックス)路線選択領域の表示 -->
+  <p style="font-size:20px; padding-bottom:5px; text-align:center; font-weight:bold;">表示するバス路線を選択して下さい</p>
+  <div class="btn-group btn-group" data-toggle="buttons" style="text-align:center;">
+    <label class="btn active">
+      <input type="checkbox" name='bus_selection' value="A" class="check" checked><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 路線A
+    </label>
+    <label class="btn">
+      <input type="checkbox" name='bus_selection' value="B" class="check"><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span> 路線B</span>
+    </label>
+    <label class="btn">
+      <input type="checkbox" name='bus_selection' value="C" class="check"><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span>路線C</span>
+    </label>
+    <label class="btn">
+      <input type="checkbox" name='bus_selection' value="D" class="check"><i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-o fa-2x"></i><span>路線D</span>
+    </label>
+  </div>
+
+  <div style="text-align:center;">
+    <a href="javascript:isCheck();" class="btn btn-border">表示する</a>
+  </div>
+  <br>
+  </div>
+
+  <!-- GoogleMapの表示 -->
+  <div id="canvas" style="width:80%; height:80%; border:solid 1px; margin:0 auto 20px auto;"></div>
+
+  <p>※最後の位置情報の更新から<label id="display_judgetime">30</label>秒以上経過した場合，アイコンが半透明になります．</p>
+
+  <!-- フッター領域の表示 -->
+  <footer>
+    <br>
+  </footer>
+
+  <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>
