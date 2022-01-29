@@ -30,7 +30,7 @@ var labelcolor_selectD = "#008000";
 
 
 //画面ロード時
-window.onload = function() {
+window.onload = function () {
     kA = 0;
     kB = 0;
     kC = 0;
@@ -80,24 +80,61 @@ function display_information() {
     getData("C");
     getData("D");
 
-    setTimeout(function() {
+    setTimeout(function () {
 
-        document.getElementById('informationA').innerHTML = "<b>運行中</b>";
-        document.getElementById('informationB').innerHTML = "<b>運行中</b>";
-        document.getElementById('informationC').innerHTML = "<b>運行中</b>";
-        document.getElementById('informationD').innerHTML = "<b>運行中</b>";
+        if (locA[3] == 1) {
+            document.getElementById('informationA-1').innerHTML = "<b>運行中</b>";
+            document.getElementById('informationA-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+        }
+        else if (locA[3] == 2) {
+            document.getElementById('informationA-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationA-2').innerHTML = "<b>運行中</b>";
+        }
+
+        if (locB[3] == 1) {
+            document.getElementById('informationB-1').innerHTML = "<b>運行中</b>";
+            document.getElementById('informationB-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+        }
+        else if (locB[3] == 2) {
+            document.getElementById('informationB-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationB-2').innerHTML = "<b>運行中</b>";
+        }
+
+        if (locC[3] == 1) {
+            document.getElementById('informationC-1').innerHTML = "<b>運行中</b>";
+            document.getElementById('informationC-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+        }
+        else if (locC[3] == 2) {
+            document.getElementById('informationC-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationC-2').innerHTML = "<b>運行中</b>";
+        }
+
+        if (locD[3] == 1) {
+            document.getElementById('informationD-1').innerHTML = "<b>運行中</b>";
+            document.getElementById('informationD-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+        }
+        else if (locD[3] == 2) {
+            document.getElementById('informationD-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationD-2').innerHTML = "<b>運行中</b>";
+        }
+
+
 
         if (locA[0] == -1 && locA[1] == -1) {
-            document.getElementById('informationA').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationA-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationA-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
         }
         if (locB[0] == -1 && locB[1] == -1) {
-            document.getElementById('informationB').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationB-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationB-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
         }
         if (locC[0] == -1 && locC[1] == -1) {
-            document.getElementById('informationC').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationC-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationC-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
         }
         if (locD[0] == -1 && locD[1] == -1) {
-            document.getElementById('informationD').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationD-1').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
+            document.getElementById('informationD-2').innerHTML = "<b style='color:red;'>現在運行しておりません</b>";
         }
 
 
@@ -181,7 +218,7 @@ function location_update(checked_bus) {
         }
         kA++;
 
-        setTimeout(function() { // 処理の実行に1秒の遅延(getData待ち)
+        setTimeout(function () { // 処理の実行に1秒の遅延(getData待ち)
             busA = new google.maps.LatLng(locA[0], locA[1]);
             //路線ピン
             markerA = new google.maps.Marker({
@@ -221,7 +258,7 @@ function location_update(checked_bus) {
         }
         kB++;
 
-        setTimeout(function() { // 処理の実行に1秒の遅延
+        setTimeout(function () { // 処理の実行に1秒の遅延
             busB = new google.maps.LatLng(locB[0], locB[1]);
             //Bピン設置
             markerB = new google.maps.Marker({
@@ -261,7 +298,7 @@ function location_update(checked_bus) {
         }
         kC++;
 
-        setTimeout(function() { // 処理の実行に1秒の遅延
+        setTimeout(function () { // 処理の実行に1秒の遅延
             busC = new google.maps.LatLng(locC[0], locC[1]);
             //路線ピン
             markerC = new google.maps.Marker({
@@ -301,7 +338,7 @@ function location_update(checked_bus) {
         }
         kD++;
 
-        setTimeout(function() { // 処理の実行に1秒の遅延
+        setTimeout(function () { // 処理の実行に1秒の遅延
             busD = new google.maps.LatLng(locD[0], locD[1]);
             //路線Dピン
             markerD = new google.maps.Marker({
@@ -337,7 +374,7 @@ function location_update(checked_bus) {
         clearInterval(myIntervalB);
         clearInterval(myIntervalC);
         clearInterval(myIntervalD);
-        setTimeout(function() {
+        setTimeout(function () {
             display();
         }, 1000);
     }
@@ -358,7 +395,7 @@ function getData(checked_value) {
     xhr.open("POST", "ajax.php");
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded;charset=UTF-8");
     xhr.send(json);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         try {
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
@@ -375,9 +412,9 @@ function getData(checked_value) {
                     } else if (checked_value == "D") {
                         locD = location;
                     }
-                } else {}
-            } else {}
-        } catch (e) {}
+                } else { }
+            } else { }
+        } catch (e) { }
     };
 }
 
@@ -424,7 +461,7 @@ function getDiffSecond(rosen) {
 
 
 function change_setting() {
-    popupImage();
+    hamburger();
     //時間
     settingTime = document.getElementById("judge_time").value;
     document.getElementById("display_judgetime").innerHTML = settingTime;
@@ -465,7 +502,7 @@ function popupImage() {
     function closePopUp(elem) {
 
         if (!elem) return;
-        elem.addEventListener('click', function() {
+        elem.addEventListener('click', function () {
             popup.classList.toggle('is-show');
         });
     }
