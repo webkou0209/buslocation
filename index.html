@@ -21,7 +21,8 @@
                 <li class="nav__item"><a href="./index.html"><i class="fas fa-home"></i> ホーム</a></li>
                 <li class="nav__item"><a href="http://www.setouchibus.co.jp/" target="_blank"><i
                             class="fas fa-link"></i> バス公式サイト</a></li>
-                <li class="nav__item"><a href="javascript:void(0)"><i class="fas fa-info-circle"></i> 使い方</a></li>
+                <li class="nav__item" id=howto-show-popup><a href="javascript:void(0)"><i
+                            class="fas fa-info-circle"></i> 使い方</a></li>
                 <li class="nav__item" id="js-show-popup"><a href="javascript:void(0)"><i class="fas fa-cog"></i> 設定</a>
                 </li>
             </ul>
@@ -43,7 +44,9 @@
         <div class="popup" id="js-popup">
             <div class="popup-inner">
                 <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
-                <div id = "settingtitle"><h3 style="text-align:center;">設定画面</h3></div>
+                <div id="settingtitle">
+                    <h3 style="text-align:center;"><i class="fas fa-cog"></i> 設定画面</h3>
+                </div>
                 <br><br>
                 <ul>
                     <li>アイコンを半透明にするまでの時間<br>
@@ -159,6 +162,43 @@
         </div>
 
 
+
+        <!-- 使い方ポップアップ -->
+        <div class="popup" id="howto-popup">
+            <div class="popup-inner">
+                <div class="close-btn" id="howto-close-btn"><i class="fas fa-times"></i></div>
+                <div id="settingtitle">
+                    <h3 style="text-align:center;"><i class="fas fa-info-circle"></i> 使い方</h3>
+                </div>
+                <br>
+
+                <h4>-基本操作-</h4><br>
+                  <p>表示したいバス路線にチェックを入れてください．</p>
+                <p>「表示する」ボタンを押すと，地図上に各路線のアイコンが表示されます．</p>
+                <br>
+                <img  src="img/howto/1.jpg">
+
+                <br><br><br><hr><br>
+                <h4>-アイコンの透過-</h4><br>
+                <p>バスの最後の位置情報更新から30秒経過するとアイコンが透過されます．</p>
+                <p>透過するまでの時間は設定画面で変更可能です．</p>
+                <br>
+                <img  src="img/howto/2.jpg">
+
+                <br><br><br><hr><br>
+                <h4>-設定画面-</h4><br>
+                <p>メニューバーから設定画面を開く．</p>
+                <p>アイコンの色・アイコンラベルの色などを好みの設定に変更する．</p>
+                <p>「設定変更」ボタンをクリックし設定を反映させる．</p>
+                <br>
+                <img  src="img/howto/3.jpg">
+
+                <br><br><br><hr>
+
+
+            </div>
+            <div class="black-background" id="howto-black-bg"></div>
+        </div>
 
         <!-- 運行情報 -->
         <div class="box26">

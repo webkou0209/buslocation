@@ -483,8 +483,8 @@ function change_setting() {
 
 
 
-// ポップアップ
-function popupImage() {
+// 設定ポップアップ
+function popupSetting() {
     var popup = document.getElementById('js-popup');
 
     if (!popup) return;
@@ -508,4 +508,32 @@ function popupImage() {
     }
 }
 
-popupImage();
+popupSetting();
+
+
+
+// 使い方ポップアップ
+function popupHowto() {
+    var popup = document.getElementById('howto-popup');
+
+    console.log("aaa");
+    if (!popup) return;
+
+    var blackBg = document.getElementById('howto-black-bg');
+    var closeBtn = document.getElementById('howto-close-btn');
+    var showBtn = document.getElementById('howto-show-popup');
+
+    closePopUp(blackBg);
+    closePopUp(closeBtn);
+    closePopUp(showBtn);
+
+    function closePopUp(elem) {
+
+        if (!elem) return;
+        elem.addEventListener('click', function () {
+            popup.classList.toggle('is-show');
+        });
+    }
+}
+
+popupHowto();
