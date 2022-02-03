@@ -1,3 +1,4 @@
+// バス停に関する記述(今はbusstop[4]しか使ってない)
 function display_busstop() {
     busstop[0] = [33.125966, 132.521684, '岩松公民館',
         33.124072, 132.520879, '岩松',
@@ -102,7 +103,7 @@ function display_busstop() {
     ];
 
 
-
+// バス停を表示
     for (i = 0; i < buscount; i++) {
         for (j = 0; j < busstop[i].length; j += 3) {
             var busstop_marker = new google.maps.Marker({
@@ -126,7 +127,7 @@ function attachMessage(marker, msg) {
     10
 }
 
-
+// 現在時刻の取得
 function UTCtime(dat) {
     var year;
     var month;
