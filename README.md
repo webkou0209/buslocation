@@ -1,11 +1,10 @@
-
 # Bus Location System
  
-Bus Locaton System is a system that displays the location of buses in real time on a screen.
+Bus Locaton System is the system that displays the location of buses in real time on your screen.
  
 # DEMO
  
-You can see the demo site at http://webkou0209.php.xdomain.jp/buslocation/
+You can see this demo site at http://webkou0209.php.xdomain.jp/buslocation/
 
 # Outline
 
@@ -16,11 +15,14 @@ My friend created the iPhone app and I developed the web app.
 The demo site on github shows the bus icon blinking, although the bus icon does not move, with the bus location information fixed at the same location.
 Detailed instructions on how to use the web app can be found in the usage tag within the app.
 
-本アプリは大学の卒業研究で，友人の卒業研究を手伝う過程で開発しました．
-本アプリの主な機能として，バスの現在位置情報をweb上で把握することができます．
-バス運転手はバス車内にiPhoneを持ち込み，そのiPhoneアプリから位置情報を取得・サーバに送信します．
-そのiPhoneアプリは友人が作成し，webアプリ側を私が開発しました．
-githubに載せているデモサイトは，バスの位置情報を同じ場所に固定している状態で，バスアイコンは動きませんが，バスのアイコンが点滅します．
+本アプリは大学の卒業研究で友人と協力して開発しました．
+本アプリの主な機能は2つあります．
+1つは、バスの現在位置情報をweb上で把握する機能です．
+バス車内に設置したiPhoneからそのバスの位置情報をリアルタイムに取得し，サーバに送信します．
+webアプリでは，その位置情報をサーバから取得しリアルタイムに表示します．
+2つ目は，表示設定のカスタマイズ機能です．
+web上で表示する路線や，アイコンの色，更新頻度等，ユーザーの好みに合わせてカスタマイズすることができます．
+これによりユーザーはより簡単に位置情報やログデータを把握しやすくなります．
 webアプリの詳しい使い方は，アプリ内の使い方タグに記載しています．
  
 # Features
@@ -49,5 +51,3 @@ Therefore, the icon is always displayed at a fixed location.
 # Author
  
 * 作成者：Koichi Ito
-* E-mail：webkou0209(at)gmail.com
- 
