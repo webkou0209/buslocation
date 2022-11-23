@@ -1,6 +1,6 @@
 # Bus Location System
  
-Bus Locaton System is the system that displays the location of buses in real time on your screen.
+Bus Locaton System is the system that displays the location of buses in real time on your browser.
  
 # DEMO
  
