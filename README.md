@@ -15,7 +15,7 @@ My friend created the iPhone app and I developed the web app.
 The demo site on github shows the bus icon blinking, although the bus icon does not move, with the bus location information fixed at the same location.
 Detailed instructions on how to use the web app can be found in the usage tag within the app.
 
-本アプリは大学の卒業研究で友人と協力して開発しました．
+本アプリは大学の卒業研究で開発しました．
 本アプリの主な機能は2つあります．
 1つは、バスの現在位置情報をweb上で把握する機能です．
 バス車内に設置したiPhoneからそのバスの位置情報をリアルタイムに取得し，サーバに送信します．
